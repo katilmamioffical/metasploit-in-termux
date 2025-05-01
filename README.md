@@ -79,7 +79,7 @@ Pull requests, issues, and suggestions are welcome!
 
 If you find this project helpful, **please support it by starring the repository**!
 
-[![Star this repo](https://img.shields.io/github/stars/katilmamioffical/metasploit-in-termux?style=social)](https://github.com/katilmamioffical/metasploit-in-termux/stargazers)
+[![Star this repository](https://img.shields.io/github/stars/katilmamioffical/termux-in-metasploit?style=for-the-badge)](https://github.com/katilmamioffical/termux-in-metasploit/stargazers)
 
 Your support means a lot and keeps the project alive!
 
