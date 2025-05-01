@@ -90,6 +90,11 @@ if [[ "$secim" == "1" || "$secim" == "2" ]]; then
     bundle update --bundler
     bundle install -j$(nproc --all)
 
+    center "* Creating symbolic links..."
+    ln -sf ${PREFIX}/opt/metasploit-framework/msfconsole ${PREFIX}/bin/
+    ln -sf ${PREFIX}/opt/metasploit-framework/msfvenom   ${PREFIX}/bin/
+    ln -sf ${PREFIX}/opt/metasploit-framework/msfrpcd    ${PREFIX}/bin/
+
     center "* Installing msfupdate scripts..."
     rm -f ${PREFIX}/opt/metasploit-framework/msfupdate
     wget -O ${PREFIX}/opt/metasploit-framework/msfupdate https://raw.githubusercontent.com/katilmamioffical/metasploit-in-termux/main/msfupdate
