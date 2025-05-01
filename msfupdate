@@ -1,0 +1,28 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+LOCAL_FILE="$PREFIX/opt/metasploit-framework/lib/metasploit/framework/version.rb"
+REMOTE_URL="https://raw.githubusercontent.com/rapid7/metasploit-framework/refs/heads/master/lib/metasploit/framework/version.rb"
+UPDATE_SCRIPT="$PREFIX/opt/metasploit-framework/msfupdate.sh"
+
+get_version() {
+    grep -E 'VERSION\s*=\s*"' "$1" | head -n 1 | cut -d '"' -f2
+}
+
+get_remote_version() {
+    curl -s "$REMOTE_URL" | grep -E 'VERSION\s*=\s*"' | head -n 1 | cut -d '"' -f2
+}
+
+local_version=$(get_version "$LOCAL_FILE")
+remote_version=$(get_remote_version)
+
+if [ -z "$local_version" ] || [ -z "$remote_version" ]; then
+    echo "Failed to fetch version information."
+    exit 1
+fi
+
+if [ "$remote_version" != "$local_version" ]; then
+    printf "Update available: %s -> %s\n" "$local_version" "$remote_version"
+    bash "$UPDATE_SCRIPT"
+else
+    echo "Metasploit Framework is already up to date. ($local_version)"
+fi
