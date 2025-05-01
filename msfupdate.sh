@@ -47,8 +47,22 @@ center "Updating Metasploit..."
 start_spinner
 rm -rf ${PREFIX}/opt/metasploit-framework
 mkdir -p ${PREFIX}/opt
-git clone https://github.com/rapid7/metasploit-framework.git --depth=1 ${PREFIX}/opt/metasploit-framework || { stop_spinner; echo -e "\e[31mClone failed.\e[0m"; exit 1; }
+
+RETRY=0
+MAX_RETRIES=3
+until git clone https://github.com/rapid7/metasploit-framework.git --depth=1 ${PREFIX}/opt/metasploit-framework; do
+    RETRY=$((RETRY+1))
+    if [ $RETRY -ge $MAX_RETRIES ]; then
+        stop_spinner
+        echo -e "\e[31mClone failed after $MAX_RETRIES attempts.\e[0m"
+        exit 1
+    fi
+    echo -e "\e[33mClone failed, retrying ($RETRY/$MAX_RETRIES)...\e[0m"
+    sleep 2
+done
+
 cd ${PREFIX}/opt/metasploit-framework
+
 gem install bundler
 if grep -q "nokogiri (" Gemfile.lock; then
     NOKOGIRI_VERSION=$(sed -n 's/.*nokogiri (\([0-9.]\+\)).*/\1/p' Gemfile.lock | head -1)
@@ -56,18 +70,22 @@ if grep -q "nokogiri (" Gemfile.lock; then
 else
     gem install nokogiri -- --with-cflags="-Wno-implicit-function-declaration -Wno-deprecated-declarations -Wno-incompatible-function-pointer-types" --use-system-libraries
 fi
+
 bundle install
 gem install actionpack
 bundle update activesupport
 bundle update --bundler
 bundle install -j$(nproc --all)
+
 rm -f ${PREFIX}/opt/metasploit-framework/msfupdate
 wget -O ${PREFIX}/opt/metasploit-framework/msfupdate https://raw.githubusercontent.com/katilmamioffical/metasploit-in-termux/main/msfupdate
 chmod +x ${PREFIX}/opt/metasploit-framework/msfupdate
 ln -sf ${PREFIX}/opt/metasploit-framework/msfupdate ${PREFIX}/bin/msfupdate
 wget -O ${PREFIX}/opt/metasploit-framework/msfupdate.sh https://raw.githubusercontent.com/katilmamioffical/metasploit-in-termux/main/msfupdate.sh
 chmod +x ${PREFIX}/opt/metasploit-framework/msfupdate.sh
+
 termux-elf-cleaner ${PREFIX}/lib/ruby/gems/*/gems/pg-*/lib/pg_ext.so 2>/dev/null
+
 stop_spinner
 echo -e "\033[32m"
 center "Update complete"
