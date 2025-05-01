@@ -100,5 +100,3 @@ This project is licensed under the [MIT License](LICENSE).
 [forks-url]: https://github.com/katilmamioffical/termux-in-metasploit/network/members
 [termux-shield]: https://img.shields.io/badge/Platform-Termux-green.svg?style=for-the-badge
 [termux-url]: https://github.com/katilmamioffical/termux-in-metasploit
-
-
