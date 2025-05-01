@@ -79,7 +79,7 @@ Pull requests, issues, and suggestions are welcome!
 
 If you find this project helpful, **please support it by starring the repository**!
 
-[![Star this repository](https://img.shields.io/github/stars/katilmamioffical/termux-in-metasploit?style=for-the-badge)](https://github.com/katilmamioffical/termux-in-metasploit/stargazers)
+[![Star this repository](https://img.shields.io/github/stars/katilmamioffical/metasploit-in-termux?style=for-the-badge)](https://github.com/katilmamioffical/metasploit-in-termux/stargazers)
 
 Your support means a lot and keeps the project alive!
 
@@ -90,13 +90,14 @@ Your support means a lot and keeps the project alive!
 This project is licensed under the [MIT License](LICENSE).
 
 
-[stars-shield]: https://img.shields.io/github/stars/katilmamioffical/termux-in-metasploit.svg?style=for-the-badge
-[stars-url]: https://github.com/katilmamioffical/termux-in-metasploit/stargazers
-[issues-shield]: https://img.shields.io/github/issues/katilmamioffical/termux-in-metasploit.svg?style=for-the-badge
-[issues-url]: https://github.com/katilmamioffical/termux-in-metasploit/issues
-[license-shield]: https://img.shields.io/github/license/katilmamioffical/termux-in-metasploit.svg?style=for-the-badge
-[license-url]: https://github.com/katilmamioffical/metasploit-in-termux/raw/refs/heads/main/LICENSE
-[forks-shield]: https://img.shields.io/github/forks/katilmamioffical/termux-in-metasploit.svg?style=for-the-badge
-[forks-url]: https://github.com/katilmamioffical/termux-in-metasploit/network/members
+[stars-shield]: https://img.shields.io/github/stars/katilmamioffical/metasploit-in-termux.svg?style=for-the-badge
+[stars-url]: https://github.com/katilmamioffical/metasploit-in-termux/stargazers
+[issues-shield]: https://img.shields.io/github/issues/katilmamioffical/metasploit-in-termux?style=for-the-badge
+[issues-url]: https://github.com/katilmamioffical/metasploit-in-termux/issues
+[license-shield]: https://img.shields.io/github/license/katilmamioffical/metasploit-in-termux?style=for-the-badge
+[license-url]: https://github.com/katilmamioffical/metasploit-in-termux-termux/raw/refs/heads/main/LICENSE
+[forks-shield]: https://img.shields.io/github/forks/katilmamioffical/metasploit-in-termux.svg?style=for-the-badge
+[forks-url]:
+https://github.com/katilmamioffical/metasploit-in-termux/network/members
 [termux-shield]: https://img.shields.io/badge/Platform-Termux-green.svg?style=for-the-badge
-[termux-url]: https://github.com/katilmamioffical/termux-in-metasploit
+[termux-url]: https://github.com/katilmamioffical/metasploit-in-termux
