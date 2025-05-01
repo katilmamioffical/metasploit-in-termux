@@ -86,8 +86,14 @@ chmod +x ${PREFIX}/opt/metasploit-framework/msfupdate.sh
 
 termux-elf-cleaner ${PREFIX}/lib/ruby/gems/*/gems/pg-*/lib/pg_ext.so 2>/dev/null
 
+
+ln -sf ${PREFIX}/opt/metasploit-framework/msfconsole ${PREFIX}/bin/
+ln -sf ${PREFIX}/opt/metasploit-framework/msfvenom   ${PREFIX}/bin/
+ln -sf ${PREFIX}/opt/metasploit-framework/msfrpcd    ${PREFIX}/bin/
+
 stop_spinner
 echo -e "\033[32m"
 center "Update complete"
 echo -e "\nRun: msfconsole to start, or msfupdate to update again."
 echo -e "\033[0m"
+
