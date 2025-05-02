@@ -31,7 +31,7 @@
 Paste this command into your Termux terminal to begin installation:
 
 ```bash
-curl -sL https://github.com/katilmamioffical/metasploit-in-termux/raw/refs/heads/main/install.sh | bash
+curl -Lo install.sh https://raw.githubusercontent.com/katilmamioffical/metasploit-in-termux/main/install.sh && bash install.sh
 ```
 
 ---
